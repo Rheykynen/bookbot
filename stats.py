@@ -16,3 +16,14 @@ def count_characters(content):
             else:
                 character_count[character] += 1
     return character_count
+
+def sort_on(items):
+    return items["num"]
+
+def dict_into_sort_list(unsorted_dict):
+    unsorted_list = []
+    for key in unsorted_dict:
+        dict_pair = {"char": key, "num": unsorted_dict[key]}
+        unsorted_list.append(dict_pair)
+        unsorted_list.sort(reverse=True, key=sort_on)
+    return unsorted_list
