@@ -7,11 +7,10 @@ def get_book_text(file_path):
 
 def main():
     book_path = "books/frankenstein.txt"
-    content= get_book_text(book_path)
+    content = get_book_text(book_path)
     counter = count_words(content)
     print(f"")
     character_dict = count_characters(content)
-    #print(character_dict)
     sorted_list = dict_into_sort_list(character_dict)
     print(sorted_list)
     print(f"""
@@ -20,6 +19,12 @@ Analyzing book found at books/frankenstein.txt...
 ----------- Word Count ----------)
 Found {counter} total words
 --------- Character Count -------
+"""
+)
+    for item in sorted_list:
+        char = item["char"]
+        if char.isalpha() == True:
+            print(f"{item['char']}: {item['num']}")
+    print("============= END ===============")
 
-""")
 main()
